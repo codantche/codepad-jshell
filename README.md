@@ -12,3 +12,7 @@ To compare the functionalities of the **BlueJ Codepad** and the **JDK JShell**, 
 
 
 > **Codantchê**: whoever is coding, tchê!
+
+## License
+
+[MIT](LICENSE)

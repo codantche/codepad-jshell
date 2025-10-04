@@ -1,8 +1,9 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx} 
+\usepackage{url}
 
-\title{Learning to program computers: comparing Code Pad and JShell features}
-\author{Marco Mangan}
+\title{Comparing Code Pad and JShell features}
+\author{Marco Mangan\thanks{\texttt{marco.mangan@gmail.com}}}
 \date{October 2025}
 
 \begin{document}
@@ -19,22 +20,66 @@ Objects first
 
 Visual
 
-BlueJ is
+BlueJ is \cite{barnes2008objects}\cite{bluej_paper}
 
 Code Pad is
 
-JShell is
+JShell is \cite{jshell_docs}
 
 Comparing Code Pad and JShell features
 
-Features are
-\section{Learner Expectations}
+Feature Modeling is
+
+\section{Motivation}
+
+This study is motivated by observations on the classroom of a undergraduate Computer Science course since the adoption of Java, BlueJ, and the Objects First approach.
+
+Since the adoption of that approach, more than two decades have passed. The main factors observed on this period include: (a) an increase in computer literacy, (b) access to new devices and computer programs, and (c) the change of reference of what a computer program is.
+
+BlueJ is a desktop application, with a look and feel that is contrasting with current applications. In particular, the multiple document interface causes the most distracting factor during classes.
+
+Students usually prefer other programming environments, usually, Microsoft Visual Studio Code. Sometimes there is a pressure of senior students to move directly to a more professional editor. 
+
+%Other editors include simple text editors, like Geany. No matter the editor, we can be sure that the Java Development Kit, that includes the Java Sheel, is available.
+
+VS Code can be run locally or even on the cloud, through a web browser. This allows the students to use tablet devices and also offer a more familiar and professional looking user interface. Some students bring their own notebook or tablet devices, but most have access to more than one computer. The cloud-based VS Code will not need a separate Java and BlueJ installation and will keep all projects on the same cloud-based folder.
+
+In this way, there is a need to offer a BlueJ-like experience for students that opt out of the BlueJ program. 
+
+\section{Research Question}
+
+The overall research question is broad: Could we have a BlueJ-like learning experience using professional tools?
+
+BlueJ has many pedagogically founded features. Therefore we must compare the experience on each feature. This study focus on the interactive and exploratory learning experience offered by BlueJ Code Pad.
+
+Therefore, the main question of this study is:
+Could the use of the Java Shell provide students with a learning experience comparable to the one provided by the BlueJ Code Pad?
+
+Even with this focus, we need to use sub-features to allow a direct comparision. By doing so, we provide a feature model that would help to understand the learning experience offered by both programs.
+
+%, one of the many BlueJ pedagogically found features
+
+%JShell was not available at the time that the BlueJ was proposed. Read-eval-loop shells were available since the adoption of interpreted languages, including the Unix bash shell, BASIC, and popular languages like Python and ECMAScript.
+
+
+\section{Methodology}
+
+Literature review
+
+
+Benchmark with examples
+
+Feature Oriented Domain Models
+
+Comparing both programs
+
+\section{Student Expectations}
 
 Get a job fast
 
 Use professional tools
 
-Write professional programs: mobile and Web.
+Write professional programs: mobile and Web clients, Web applications, games.
 
 \section{Usage Scenarios}
 
@@ -60,14 +105,41 @@ Conditional commands
 \section{Feature Modeling}
 Commonality and variability are
 
-\section{Related Works}
+\section{Related Work}
 
+At least on study points out the inadequacy of the Java Shell in the classroom
+\cite{politz_minnes2018jshell}.
 
 \section{Discussion}
 
 JShell is a professional tool
 
+BlueJ integration of many features.
+
+BlueJ features not provided by Java Shell include class and object visual models and their integration with Code Pad.
+
+In order to compare the potential experience, we compare features of the applications.
+
+The need for a in class room is reduced, because the feature model provides a objective reference point. Variation of performance among students is a complex task, because of confounding factors as motivation, previous experience, and problem solving skills.
+
 
 \section{Conclusion}
+
+The Java Shell provides interactive and exploratory features that can improve the experience to programmers on all levels of maturity.
+
+The use of professional tools on the classroom is a reality that calls for a more diverse set of tools, to accomodate a more diverse set of students.
+
+All/many/some example of the benchmark can be reproduced using the Java Shell.
+
+Code Pad has unique features, as the integration with visual models, and a simplified set of messages. 
+
+
+Balance the power of the Java Sheel with the easier adoption of BlueJ.
+
+Further studies are needed to complete the broader feature model. The evaluation of visual modeling extensions is next step on this research.
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
 
 \end{document}

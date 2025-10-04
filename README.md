@@ -10,7 +10,11 @@ To compare the functionalities of the **BlueJ Codepad** and the **JDK JShell**, 
 - Practical examples (based on the BlueJ book and JShell tutorials)  
 - Possible didactic applications in introductory programming courses
 
+### Roadmap
 
+- **v0.1**: Literature survey + first replicated example
+
+  
 > **Codantchê**: whoever is coding, tchê!
 
 ## License

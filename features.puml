@@ -92,4 +92,11 @@ mindmapDiagram {
 **** [–] Visual class/object diagrams
 **** (P) VS Code extension could add visuals
 
+
+legend right
+  **Project:** Codepad vs JShell (Codantchê)
+  **Contact:** marco.mangan@gmail.com
+  **Date:** 2025-10-04
+endlegend
+
 @endmindmap

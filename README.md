@@ -17,6 +17,9 @@ To compare the functionalities of the **BlueJ Codepad** and the **JDK JShell**, 
   
 > **Codantchê**: whoever is coding, tchê!
 
+
+![Feature Model](http://www.plantuml.com/plantuml/svg/https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/features.puml)
+
 ## License
 
 [MIT](LICENSE)

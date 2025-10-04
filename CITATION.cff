@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you want to reference this project, please cite it as below."
+title: "Codepad-JShell: Exploratory Study (Work in Progress)"
+authors:
+  - family-names: "Mangan"
+    given-names: "Marco Aurélio Souza"
+    email: "marco.mangan@gmail.com"
+version: 0.1
+date-released: 2025-10-04
+url: "https://github.com/codantche/codepad-jshell"
+abstract: >
+  Exploratory project comparing BlueJ's Codepad and Java's JShell,
+  aiming to support didactic use in data structures and programming courses.
+keywords:
+  - Java
+  - JShell
+notes: >
+  This is a draft and has not been peer-reviewed or published.

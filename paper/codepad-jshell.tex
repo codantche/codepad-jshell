@@ -2,6 +2,27 @@
 \usepackage{graphicx} 
 \usepackage{url}
 
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{jshell}{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!5},
+  frame=single,
+  framerule=0.5pt,
+  rulecolor=\color{gray!30},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  xleftmargin=1em,
+  showstringspaces=false,
+  tabsize=2,
+  columns=flexible,
+  moredelim=**[is][\color{blue}]{@}{@}, % for blue prompt like @jshell>
+}
+
+\lstset{style=jshell}
+
 \title{Comparing Code Pad and JShell features}
 \author{Marco Mangan\thanks{\texttt{marco.mangan@gmail.com}}}
 \date{October 2025}
@@ -73,6 +94,9 @@ Feature Oriented Domain Models
 
 Comparing both programs
 
+
+Most evidences are available on the paper repository \cite{mangan2025codepadjshell}.
+
 \section{Student Expectations}
 
 Get a job fast
@@ -85,10 +109,25 @@ Write professional programs: mobile and Web clients, Web applications, games.
 
 Exercises from Barnes and Kolling
 
-Evaluate expressions
+\subsection{Evaluate expressions}
+
+BlueJ return value and type of each expression. 
+The internal structure of the objects can be visually inspected in BlueJ. 
+
+JShell returns only the value. Data types can be consulted using the command /vars.
+JShell users must recur to introspection commands, which would be out of the scope of a first programming course. 
+The CLI of Java Shell at least allow the use of ids to refer to expression values,  objects  and basic types.
+
+\begin{lstlisting}
+jshell> 4 + 5
+$1 ==> 9
+\end{lstlisting}
 
 Method call
-
+\begin{lstlisting}
+jshell> "Wombat".substring(3, 5)
+$2 ==> "ba"
+\end{lstlisting}
 Two-way integration with visual object model
 
 After each compile

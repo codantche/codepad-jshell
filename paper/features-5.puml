@@ -1,0 +1,22 @@
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class "Interactive Environment" as Root <<feature>>
+class "REPL choice" as Choice <<group>>
+class "BlueJ Code Pad" as BJC <<feature>>
+class "JShell" as JSH <<feature>>
+class "Third-party REPL" as TPR <<feature>>
+
+Root *-- Choice
+Choice *-- BJC
+Choice *-- JSH
+Choice *-- TPR
+
+note right of Choice
+{xor} exactly one of:
+- BlueJ Code Pad
+- JShell
+- Third-party REPL
+end note
+@enduml

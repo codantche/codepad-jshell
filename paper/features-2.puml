@@ -1,0 +1,23 @@
+@startuml
+title Feature Model: BlueJ Code Pad vs JShell
+
+*Interactive Environment*
+-- BlueJ_CodePad
+-- JShell
+
+Interactive Environment : Common features
+Interactive Environment : +Evaluate Expressions
+Interactive Environment : +Method Calls
+Interactive Environment : +Variable Declarations
+
+BlueJ_CodePad : Optional features
+BlueJ_CodePad : Visual Object Model
+BlueJ_CodePad : Two-Way Integration
+BlueJ_CodePad : Simplified Messages
+
+JShell : Optional features
+JShell : Command History
+JShell : Script Saving
+JShell : Introspection Commands
+JShell : Integration with IDEs
+@enduml

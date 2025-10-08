@@ -1,0 +1,26 @@
+@startmindmap
+title Feature Model: BlueJ Code Pad vs. JShell
+
+* Interactive Environment
+** Common features
+*** Evaluate expressions
+*** Method calls
+*** Variable declarations
+
+** BlueJ Code Pad
+*** Visual object model
+*** Two-way integration with visual model
+*** Simplified diagnostic messages
+*** Object inspector (state view)
+
+** JShell
+*** Command history
+*** Save/load snippets (scripts)
+*** Introspection (/vars, /types, /methods)
+*** IDE integration (VS Code, IntelliJ)
+
+legend right
+| Marking | Meaning    |
+| (no mark) | feature  |
+endlegend
+@endmindmap

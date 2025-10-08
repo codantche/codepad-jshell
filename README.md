@@ -18,7 +18,7 @@ To compare the functionalities of the **BlueJ Codepad** and the **JDK JShell**, 
 
 
 
-![Feature Model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/features.puml)
+![Feature Model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/paper/features.puml)
 
 
 ## License

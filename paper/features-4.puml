@@ -2,21 +2,53 @@
 hide methods
 skinparam classAttributeIconSize 0
 
-class Root <<feature>>
-class Editors <<group>>
+' === Feature nodes ===
+class "Interactive Environment" as Root <<feature>>
+class "Common features" as Common <<group>>
+class "Evaluate expressions" as Eval <<mandatory>>
+class "Method calls" as Calls <<mandatory>>
+class "Variable declarations" as Vars <<mandatory>>
+
 class "BlueJ Code Pad" as BJC <<feature>>
-class JShell as JSH <<feature>>
-class "Third-party REPL" as TPR <<feature>>
+class "Visual object model" as VOM <<optional>>
+class "Two-way integration" as TWI <<optional>>
+class "Simplified diagnostics" as SD <<optional>>
+class "Object inspector" as OI <<optional>>
 
-Root *-- Editors
-Editors *-- BJC
-Editors *-- JSH
-Editors *-- TPR
+class "JShell" as JSH <<feature>>
+class "Command history" as Hist <<mandatory>>
+class "Save/load snippets" as Save <<mandatory>>
+class "Introspection (/vars, /types)" as Intro <<optional>>
+class "IDE integration" as IDE <<optional>>
 
-note right of Editors
-{xor} exactly one:
-- BlueJ Code Pad
-- JShell
-- Third-party REPL
+' === Tree (composition) ===
+Root *-- Common
+Root *-- BJC
+Root *-- JSH
+
+Common *-- Eval
+Common *-- Calls
+Common *-- Vars
+
+BJC *-- VOM
+BJC *-- TWI
+BJC *-- SD
+BJC *-- OI
+
+JSH *-- Hist
+JSH *-- Save
+JSH *-- Intro
+JSH *-- IDE
+
+' === Cross-tree constraints ===
+OI ..> VOM : requires
+TWI ..> IDE : excludes
+
+note bottom of Root
+Stereotypes:
+  <<feature>>, <<group>>, <<mandatory>>, <<optional>>
+Edges:
+  *-- composition (parent → child)
+  ..> dependency (label as "requires"/"excludes")
 end note
 @enduml

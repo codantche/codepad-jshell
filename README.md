@@ -15,7 +15,7 @@ To compare the functionalities of the **BlueJ Codepad** and the **JDK JShell**, 
 - **v0.1**: Literature survey + first replicated example
 
 # Exploratory Feature Models
-![Feature Model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/paper/features.puml)
+![Feature Model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/paper/features-1.puml)
 
 ![Feature Model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/codantche/codepad-jshell/refs/heads/main/paper/features-2.puml)
 

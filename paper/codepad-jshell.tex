@@ -35,38 +35,36 @@
 \maketitle
 
 \begin{abstract}
-Learning introductory programming remains a challenge, especially when students are required to use professional tools. 
-BlueJ, designed under the \textit{objects-first} approach, provides a simplified environment and an interactive feature known as the Code Pad, which enables exploratory learning. 
-Since the introduction of JShell in JDK~9, Java developers have gained a professional read--eval--print--loop (REPL) tool that overlaps with some of BlueJ's interactive capabilities. 
-This paper investigates whether JShell can offer a learning experience comparable to the BlueJ Code Pad in the context of introductory computer science education. 
-Through feature-oriented modeling, benchmarking examples, and literature review, we identify similarities and differences between both tools. 
-Results suggest that while JShell provides more powerful and flexible interactions, BlueJ retains pedagogical advantages due to its visual modeling and simplified interface. 
-The study contributes to understanding how professional and educational tools can converge to support diverse student needs in programming education.
+Learning introductory programming remains a challenge, particularly when students are required to use professional tools. BlueJ, designed under the objects-first approach, provides a simplified environment and an interactive feature known as the Code Pad, which supports exploratory learning. Since the introduction of JShell in JDK 9, Java developers have gained a professional read–eval–print–loop (REPL) tool that overlaps with some of BlueJ’s interactive capabilities. This paper investigates whether JShell can offer a learning experience comparable to BlueJ’s Code Pad in the context of introductory computer science education. Through feature-oriented modeling, benchmark examples, and a review of related literature, we identify key similarities and differences between the two tools. The results suggest that while JShell enables more powerful and flexible interactions, BlueJ retains pedagogical advantages due to its visual modeling support and simplified interface. The study contributes to understanding how professional and educational environments can converge to support diverse student needs in programming education.
 \end{abstract}
 
 \section{Introduction}
 
-This work presents a pragmatic pedagogical comparison between BlueJ’s Code Pad and Java’s JShell.
-Rather than focusing on instructional theory, the study examines how students act upon the features effectively available in each environment during introductory programming tasks.
+This work presents a pragmatic, pedagogical comparison between BlueJ’s Code Pad and Java’s JShell. Rather than focusing on instructional theory, the study examines how students engage with the features that are effectively available in each environment while performing introductory programming tasks.
 
-Learning to program computers is hard. By the late 1990s, the need to learn object-oriented programming sparked the discussion on learning aproches. Historically, programmers evolved their skills from computer architecture, to assembly, to early programming languages. In this evolution, they have learned objects later.
+Learning to program computers is hard. By the late 1990s, the growing need to teach object-oriented programming sparked a broad discussion on instructional approaches. Historically, programmers developed their skills by progressing from computer architecture to assembly and then to early programming languages. Within this evolution, the understanding of objects typically came later.
 
-With the apparent prevalence of object-oriented languages, like C++ and Java, an objects-first approach was advocated, at that time. Before that, languages like BASIC, Smalltalk, and LISP were learned without the need to learn other languages fist or learn about hardware. Programming is at a higher level, in this case, the approach is objects first.
+With the growing prevalence of object-oriented languages such as C++ and Java, an objects-first approach to teaching programming was advocated at that time. Before this shift, languages like BASIC, Smalltalk, and LISP were often learned directly—without prior exposure to other languages or to hardware concepts. Programming in these contexts occurred at a higher level of abstraction, and the objects-first approach emerged as a natural extension of this perspective.
 
-BlueJ is a programming environment that assumes the objects first learning approach, made available in 1999 \cite{barnes2008objects}\cite{bluej_paper}. Among many features, Code Pad was an innovation that let Java programmers to try and explore commands, without the need to write a complete application.
+BlueJ is a programming environment based on the objects-first learning approach, first released in 1999 \cite{barnes2008objects}\cite{bluej_paper}. Among its many features, the Code Pad was an innovation that allowed Java programmers to experiment with and explore commands without the need to write a complete application.
 
 % https://en.wikipedia.org/wiki/List_of_educational_programming_languages
 
-JShell is read-eval-print-loop introduced in the JDK around 2017, with JDK 9 \cite{jshell_docs}. It is apparent that some of the JShell features are similar to those found in BlueJ Code Pad module, and earlier educational programming languages. 
+JShell is a read–eval–print loop (REPL) introduced in JDK 9, around 2017 \cite{jshell_docs}. Some of its features are clearly similar to those found in BlueJ’s Code Pad module and in earlier educational programming environments.
 
-This may rise the question, do we still need BlueJ Code Pad on a first programming class?
+This raises the question of whether the interactive features once unique to BlueJ’s Code Pad are still necessary in introductory programming, now that JShell provides similar capabilities within the standard JDK.
 
 %Could JShell be a replacement for Code Pad? What are the differences between educational and professional programming languages?
 
-Using Java Shell may be just a preference, but to answer that question with facts we need to 
-compare Code Pad and JShell features
+Using JShell may be a matter of personal preference, but to answer this question objectively we need to compare the features of Code Pad and JShell.
 
-Feature Modeling is
+This study adopts a pragmatic pedagogical perspective to identify and analyze the interactive features available in both environments. 
+
+This paper aims to analyze and compare the interactive features of BlueJ’s Code Pad and JShell from a pragmatic pedagogical perspective. The study draws on feature-oriented modeling, benchmark examples, and literature review to identify their similarities and differences.
+
+The results are intended to inform educators and tool designers about how professional and educational environments can converge to better support introductory programming.
+
+Ultimately, we need to better define what “education” means in programming, as professional developers never cease to learn.
 
 \section{Motivation}
 
@@ -190,6 +188,8 @@ protoboard
 types of software 
 Type E
 
+O termo feature é utilizado em diferentes tradições da Engenharia de Software. No contexto deste artigo, ele designa um recurso funcional das ferramentas Code Pad e JShell, em sentido semelhante ao uso em documentação técnica e em Sommerville (2015).
+Reconhece-se, contudo, que o termo também possui acepções formais em Feature-Oriented Software Development (Kang et al., 1990; Batory et al., 2004) e em Behavior-Driven Development (North, 2006), onde descreve unidades de comportamento observável (feature files).
 
 \section{Conclusion}
 

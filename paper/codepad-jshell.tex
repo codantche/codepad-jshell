@@ -78,43 +78,53 @@ In this context, there is a clear need to provide a BlueJ-like experience for st
 
 \section{Research Question}
 
-The central research question of this study is broad: can a BlueJ-like learning experience be achieved using professional tools such as Java’s JShell?
+The central research question of this study is broad: can a BlueJ-like learning experience be achieved using professional tools such as Java’s \textit{JShell}?
 
-BlueJ includes many pedagogically grounded features. Therefore, it is necessary to compare the learning experience associated with each feature. This study focuses on the interactive and exploratory learning experience offered by BlueJ’s Code Pad.
+\textit{BlueJ} includes many pedagogically grounded features. Therefore, it is necessary to compare the learning experience associated with each feature. This study focuses on the interactive and exploratory learning experience offered by BlueJ’s \textit{Code Pad}.
 
 Therefore, the main research question of this study is:
-Can the use of Java’s JShell provide students with a learning experience comparable to the one offered by BlueJ’s Code Pad?
 
+\begin{quote}
+\textit{Can the use of Java’s JShell provide students with a learning experience comparable to the one offered by BlueJ’s Code Pad?}
+\end{quote}
 
-Even with this focus, we need to use sub-features to allow a direct comparison. By doing so, we provide a list of pragmatic features  that would help to understand the learning experience offered by both programs.
+Even with this focus, it is necessary to identify sub-features that enable a direct comparison between the two tools. By doing so, the study provides a list of pragmatic features that help clarify the learning experience offered by both environments.
 
-%, one of the many BlueJ pedagogically found features
+% JShell was not available at the time BlueJ was proposed. Read–eval–print–loop shells had been available since the adoption of interpreted languages, including the Unix bash shell, BASIC, and popular languages such as Python and ECMAScript.
 
-%JShell was not available at the time that the BlueJ was proposed. Read-eval-loop shells were available since the adoption of interpreted languages, including the Unix bash shell, BASIC, and popular languages like Python and ECMAScript.
-
-To answer this question, the study combines feature-oriented modeling, benchmark examples, and a review of related literature. This methodological combination allows a pragmatic and pedagogically informed comparison between BlueJ’s Code Pad and Java’s JShell, focusing on the interactive features that shape students’ learning experiences.
-
+To answer this question, the study combines feature-oriented modeling, benchmark examples, and a review of related literature. This methodological combination allows a pragmatic and pedagogically informed comparison between BlueJ’s \textit{Code Pad} and Java’s \textit{JShell}, focusing on the interactive features that shape students’ learning experiences.
 
 \section{Methodology}
 
-Literature review
+The study combines literature review, benchmarking, and feature-oriented modeling to support a pragmatic comparison between \textit{BlueJ}’s \textit{Code Pad} and Java’s \textit{JShell}. The analysis follows a mixed qualitative and descriptive approach, emphasizing features that affect exploratory and interactive learning in introductory programming.
 
-Benchmark with examples
+\subsection{Literature Review}
 
-Feature Oriented Domain Models
+The literature review includes both educational and technical sources. Pedagogical aspects were examined through books and papers related to \textit{BlueJ} and the \textit{objects-first} approach \cite{barnes2008objects, bluej_paper}. Technical aspects were reviewed using the official \textit{JShell} documentation and complementary material describing its architecture, commands, and pedagogical potential \cite{jshell_docs}. Additional references were collected from textbooks and course materials frequently used in introductory programming, in order to extract representative code examples for benchmarking.
 
-Comparing both programs
+\subsection{Benchmarking and Feature Identification}
 
+A set of examples was selected from the reviewed educational materials and executed in both environments. These examples include variable declarations, expression evaluation, object instantiation, and method invocation. Observations from these executions were used to construct a preliminary list of features shared or unique to each tool.
 
-Most evidences are available on the paper repository \cite{mangan2025codepadjshell}.
+\subsection{Feature-Oriented Modeling}
 
-\section{Student Expectations}
+The identified features were organized into a preliminary \textit{Feature-Oriented Domain Model} (FODM), representing the functional scope of each environment. This model served as a conceptual framework to compare \textit{BlueJ}’s \textit{Code Pad} and Java’s \textit{JShell} in terms of usability, interaction style, and pedagogical affordances.
 
-Get a job fast
+\subsection{Comparative Analysis}
 
-Use professional tools
+Both environments were compared from a pragmatic perspective, focusing on user experience rather than implementation. The analysis highlights objective aspects of interaction—such as immediacy of feedback, visualization, and command flexibility—while maintaining awareness of each tool’s pedagogical intent.
 
-Write professional programs: mobile and Web clients, Web applications, games.
+\subsection{Reproducibility and Tools}
+
+All evidence and supplementary materials used in this study are available in the public repository \cite{mangan2025codepadjshell}. The research workflow employed \textit{Overleaf} for collaborative editing, and \textit{GitHub} (with Issues and Codespaces) for version control and reproducibility. ChatGPT~5 was used for text review, formatting consistency, and minor language editing.
+
+%\section{Student Expectations}
+
+%Get a job fast
+
+%Use professional tools
+
+%Write professional programs: mobile and Web clients, Web applications, games.
 
 \section{Usage Scenarios}
 

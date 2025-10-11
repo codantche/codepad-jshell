@@ -33,6 +33,19 @@ Escrever instruções completas.
 
 Testar novos operadores e novas chamadas de método.
 
+# Page 53
+
+```
+public class NumberDisplay 
+{
+  private int limit;
+  private int value;
+
+  public NumberDisplay
+}
+
+```
+
 # Page 57
 
 Exercício 3.9

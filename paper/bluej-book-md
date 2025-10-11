@@ -2,10 +2,13 @@
 
 Seção 2.18 Testando expressões: O Code Pad
 
+Testar novos operadores e novas chamadas de método.
+
 ```
 4 + 5
 "Wombar".substring(2, 5)
 ```
+
 # Page 45
 
 Exercício 2.74 Considere as expressões a seguir.

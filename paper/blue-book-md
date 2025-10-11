@@ -1,0 +1,21 @@
+# Page 44
+
+Seção 2.18 Testando expressões: O Code Pad
+
+```
+4 + 5
+"Wombar".substring(2, 5)
+```
+# Page 45
+
+Exercício 2.74 Considere as expressões a seguir.
+
+```
+99 + 3
+"cat" + "fish"
+"cat" + 9
+9 + 3 + "cat"
+"cat" + 3 + 9
+"catfish".substring(3, 4)
+"catfish".substring(3, 8)
+```

@@ -71,3 +71,6 @@ new ArrayList<String>()
 Se você escrever a última linha sem ponto-e-vírgula à esquerda, você verá o pequeno ícone vermelho de objeto. Arraste esse ícone até a bancada de objetos. Examine seus métodos e tente chamas alguns (como add, remove, size, is empty). Tente também chamar os mesmos métodos do Code Pad. Você pode acessar objetos na bancada de objetos pelo Code Pad utilizando sus nomes. Por exemplo, se houver um ArrayLust chamado al1 na bancada de objetos, no Code Pad você poderá digitar
 al1.size()
 
+
+23 ocorrências de bancada
+10 ocorrências de code pad

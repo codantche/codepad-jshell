@@ -41,7 +41,24 @@ public class NumberDisplay
   private int limit;
   private int value;
 
-  public NumberDisplay
+  public NumberDisplay(int rollOverLimit)
+  {
+    limit = rollOverLimit;
+    value = 0;
+  }
+
+  public getValue()
+  {
+  }
+
+  public void setValue(int replacementValue)
+  {
+  }
+
+  public String getDisplayValue()
+  public void increment()
+  {
+  }
 }
 
 ```

@@ -1,4 +1,6 @@
-# Page 44
+# B&K BlueJ Book
+
+## Page 44
 
 Seção 2.18 Testando expressões: O Code Pad
 
@@ -9,7 +11,7 @@ Testar novos operadores e novas chamadas de método.
 "Wombar".substring(2, 5)
 ```
 
-# Page 45
+## Page 45
 
 Exercício 2.74 Considere as expressões a seguir.
 
@@ -33,7 +35,7 @@ Escrever instruções completas.
 
 Testar novos operadores e novas chamadas de método.
 
-# Page 53
+## Page 53
 
 ```
 public class NumberDisplay 
@@ -77,7 +79,7 @@ public class NumberDisplay
 
 ```
 
-# Page 57
+## Page 57
 
 Exercício 3.9
 
@@ -92,11 +94,11 @@ Exercício 3.9
 
 Depos de escrever suas respostas em uma folha de papel, abra o Code Pad no BlueJ e teste-o.
 
-# Page 59
+## Page 59
 
 Exercício 3.17 Teste a expressão (8 % 3) no Code Pad. Tente outros números. O que acontece quando você utiliza o operador de resto com números negativos?
 
-# Page 63
+## Page 63
 
 Exercício 3.25 Crie o objeto NumberDisplay com um limite de 80 no Code Pad digitando:
 
@@ -105,7 +107,7 @@ NumberDisplay nd = new NumberDisplay(80);
 Chame então os métodos getValue(), setValue(int value) e increment() no Code Pad, [por exemplo digitando nd.getValue()].
 Observe que as instruções (métodos modificadores) precisam de ponto-e-vírgula no final, ao passo que expressões (métodos de acesso) não precisam.
 
-# Page 86
+## Page 86
 
 Exercício 4.14 Crie um ArrayList<String> no Code Pad digitando estas duas linhas:
 

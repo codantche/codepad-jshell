@@ -76,7 +76,6 @@ public class NumberDisplay
     value = (value + 1) % limit;
   }
 }
-
 ```
 
 ## Page 57
@@ -111,8 +110,11 @@ Observe que as instruções (métodos modificadores) precisam de ponto-e-vírgul
 
 Exercício 4.14 Crie um ArrayList<String> no Code Pad digitando estas duas linhas:
 
+```
 import java.util.ArrayList;
 new ArrayList<String>()
+```
+
 
 Se você escrever a última linha sem ponto-e-vírgula à esquerda, você verá o pequeno ícone vermelho de objeto. Arraste esse ícone até a bancada de objetos. Examine seus métodos e tente chamas alguns (como add, remove, size, is empty). Tente também chamar os mesmos métodos do Code Pad. Você pode acessar objetos na bancada de objetos pelo Code Pad utilizando sus nomes. Por exemplo, se houver um ArrayLust chamado al1 na bancada de objetos, no Code Pad você poderá digitar
 al1.size()

@@ -1,14 +1,25 @@
 # B&K BlueJ Book
 
+
+This document lists all occurrences of the term *Code Pad* in the 4th edition of *Objects First with Java* (Barnes & Kölling, 2008), including the surrounding exercises or examples.
+
+---
+title: "Occurrences of Code Pad in Barnes & Kölling (4th ed.)"
+source: "Objects First with Java, 4th Edition, 2008"
+author: "Marco Aurélio Souza Mangan"
+language: "English with source text in Portuguese"
+purpose: "Empirical data collection for Code Pad vs JShell comparison"
+---
+
 ## Page 44
 
 Seção 2.18 Testando expressões: O Code Pad
 
-Testar novos operadores e novas chamadas de método.
+Purpose: Introduces the Code Pad for experimenting with operators and method calls.
 
 ```
 4 + 5
-"Wombar".substring(2, 5)
+"Wombat".substring(2, 5)
 ```
 
 ## Page 45
@@ -91,7 +102,7 @@ Exercício 3.9
 ```
 
 
-Depos de escrever suas respostas em uma folha de papel, abra o Code Pad no BlueJ e teste-o.
+Depois de escrever suas respostas em uma folha de papel, abra o Code Pad no BlueJ e teste-o.
 
 ## Page 59
 
@@ -116,9 +127,28 @@ new ArrayList<String>()
 ```
 
 
-Se você escrever a última linha sem ponto-e-vírgula à esquerda, você verá o pequeno ícone vermelho de objeto. Arraste esse ícone até a bancada de objetos. Examine seus métodos e tente chamas alguns (como add, remove, size, is empty). Tente também chamar os mesmos métodos do Code Pad. Você pode acessar objetos na bancada de objetos pelo Code Pad utilizando sus nomes. Por exemplo, se houver um ArrayLust chamado al1 na bancada de objetos, no Code Pad você poderá digitar
-al1.size()
+Se você escrever a última linha sem ponto-e-vírgula à esquerda, você verá o pequeno ícone vermelho de objeto. 
+Arraste esse ícone até a bancada de objetos. 
+Examine seus métodos e tente chamar alguns (como add, remove, size, isEmpty). 
+Tente também chamar os mesmos métodos do Code Pad. 
+Você pode acessar objetos na bancada de objetos pelo Code Pad utilizando seus nomes. 
+Por exemplo, se houver um ArrayList chamado al1 na bancada de objetos, no Code Pad você poderá digitar:
 
+```
+al1.size()
+```
 
 23 ocorrências de bancada
 10 ocorrências de code pad
+
+### Summary of Findings
+
+- Total of **10 occurrences** of *Code Pad* (pages 8, 44, 45, 57, 59, 63, 66, 17, 449, 454).
+- Most mentions appear in **exercise prompts** (pages 44–86), not in the main explanatory text.
+- The *Code Pad* is consistently paired with the **object bench** as a complementary tool for exploration.
+- Exercises emphasize:
+  - Evaluating expressions and method calls.
+  - Creating and inspecting objects.
+  - Understanding statement vs. expression syntax (semicolon use).
+- Pedagogical implication: *Code Pad* serves as a discovery-oriented REPL, inviting learners to test and observe program behavior interactively.
+

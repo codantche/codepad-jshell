@@ -11,6 +11,10 @@ language: "English with source text in Portuguese"
 purpose: "Empirical data collection for Code Pad vs JShell comparison"
 ---
 
+Busca no livro:
+23 ocorrências de bancada (object bench)
+10 ocorrências de code pad
+
 ## Page 44
 
 Seção 2.18 Testando expressões: O Code Pad
@@ -112,7 +116,10 @@ Exercício 3.17 Teste a expressão (8 % 3) no Code Pad. Tente outros números. O
 
 Exercício 3.25 Crie o objeto NumberDisplay com um limite de 80 no Code Pad digitando:
 
+```
 NumberDisplay nd = new NumberDisplay(80);
+```
+
 
 Chame então os métodos getValue(), setValue(int value) e increment() no Code Pad, [por exemplo digitando nd.getValue()].
 Observe que as instruções (métodos modificadores) precisam de ponto-e-vírgula no final, ao passo que expressões (métodos de acesso) não precisam.
@@ -127,7 +134,7 @@ new ArrayList<String>()
 ```
 
 
-Se você escrever a última linha sem ponto-e-vírgula à esquerda, você verá o pequeno ícone vermelho de objeto. 
+Se você escrever a última linha sem ponto-e-vírgula à esquerda (Nota: direita?), você verá o pequeno ícone vermelho de objeto. 
 Arraste esse ícone até a bancada de objetos. 
 Examine seus métodos e tente chamar alguns (como add, remove, size, isEmpty). 
 Tente também chamar os mesmos métodos do Code Pad. 
@@ -138,8 +145,7 @@ Por exemplo, se houver um ArrayList chamado al1 na bancada de objetos, no Code P
 al1.size()
 ```
 
-23 ocorrências de bancada
-10 ocorrências de code pad
+
 
 ### Summary of Findings
 

@@ -1,0 +1,179 @@
+@masmangan ➜ /workspaces/codepad-jshell/samples (main) $ jshell
+/|  Welcome to JShell -- Version 21.0.7
+|  For an introduction type: /help intro
+
+jshell> /open NumberDisplay.java
+
+jshell> 4 + 5
+$2 ==> 9
+
+jshell> "Wombat".substring(2, 5)
+$3 ==> "mba"
+
+jshell> 99 + 3
+$4 ==> 102
+
+jshell> "cat" + "fish"
+$5 ==> "catfish"
+
+jshell> "cat" + 9
+$6 ==> "cat9"
+
+jshell> 9 + 3 + "cat"
+$7 ==> "12cat"
+
+jshell> "cat" + 3 + 9
+$8 ==> "cat39"
+
+jshell> "catfish".substring(3, 4)
+$9 ==> "f"
+
+jshell> "catfish".substring(3, 8)
+|  Exception java.lang.StringIndexOutOfBoundsException: Range [3, 8) out of bounds for length 7
+|        at Preconditions$1.apply (Preconditions.java:55)
+|        at Preconditions$1.apply (Preconditions.java:52)
+|        at Preconditions$4.apply (Preconditions.java:213)
+|        at Preconditions$4.apply (Preconditions.java:210)
+|        at Preconditions.outOfBounds (Preconditions.java:98)
+|        at Preconditions.outOfBoundsCheckFromToIndex (Preconditions.java:112)
+|        at Preconditions.checkFromToIndex (Preconditions.java:349)
+|        at String.checkBoundsBeginEnd (String.java:4865)
+|        at String.substring (String.java:2834)
+|        at (#10:1)
+
+jshell> ! (4 < 5)
+$11 ==> false
+
+jshell> ! false
+$12 ==> true
+
+jshell> (2 > 2) || ((4 == 4) && (1 < 0))
+$13 ==> false
+
+jshell> (2 > 2) || (4 == 4) && (1 < 0)
+$14 ==> false
+
+jshell> (34 != 33) & ! false
+$15 ==> true
+
+jshell> 8 % 3
+$16 ==> 2
+
+jshell> 8 % 10
+$17 ==> 8
+
+jshell> -8 % 3
+$18 ==> -2
+
+jshell> -8 % -3
+$19 ==> -2
+
+jshell> NumberDisplay nd = new NumberDisplay(80);
+nd ==> NumberDisplay@56235b8e
+
+jshell> nd.getValue()
+$21 ==> 0
+
+jshell> nd.setValue(12);
+
+jshell> nd.getValue()
+$23 ==> 12
+
+jshell> nd.increment();
+
+jshell> nd.getValue()
+$25 ==> 13
+
+jshell> import java.util.ArrayList;
+
+jshell> new ArrayList<String>()
+$27 ==> []
+
+jshell> new ArrayList<String>();
+$28 ==> []
+
+jshell> $27.size()
+$29 ==> 0
+
+jshell> $27.add(7);
+|  Error:
+|  incompatible types: int cannot be converted to java.lang.String
+|  $27.add(7);
+|          ^
+
+jshell> $27.add("java");
+$30 ==> true
+
+jshell> $27.size()
+$31 ==> 1
+
+jshell> $27.add("shell");
+$32 ==> true
+
+jshell> $27.size()
+$33 ==> 2
+
+jshell> $27.remove("java");
+$34 ==> true
+
+jshell> $27.size()
+$35 ==> 1
+
+jshell> $27
+$27 ==> [shell]
+
+jshell> var al1 = $27;
+al1 ==> [shell]
+
+jshell> al1.size()
+$38 ==> 1
+
+jshell> var a = 10;
+a ==> 10
+
+jshell> a = 20
+a ==> 20
+
+jshell> a = 30;
+a ==> 30
+
+jshell> System.out.printf("%.2f%n", 3.1415);
+3.14
+$42 ==> java.io.PrintStream@4973813a
+
+jshell> String.format("%.2f%n", 3.1415);
+$43 ==> "3.14\n"
+
+jshell> 2 / 0
+|  Exception java.lang.ArithmeticException: / by zero
+|        at (#44:1)
+
+jshell> Integer i = 10;
+i ==> 10
+
+jshell> i++
+$46 ==> 10
+
+jshell> i
+i ==> 11
+
+jshell> var n;
+|  Error:
+|  cannot infer type for local variable n
+|    (cannot use 'var' on variable without initializer)
+|  var n;
+|  ^----^
+
+jshell> Integer j;
+j ==> null
+
+jshell> j
+j ==> null
+
+jshell> j.toString()
+|  Exception java.lang.NullPointerException: Cannot invoke "java.lang.Integer.toString()" because "REPL.$JShell$60.j" is null
+|        at (#50:1)
+
+jshell> /exit
+|  Goodbye
+@masmangan ➜ /workspaces/codepad-jshell/samples (main) $ 

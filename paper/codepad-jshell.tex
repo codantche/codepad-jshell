@@ -5,6 +5,9 @@
 \usepackage{plantuml}
 \usepackage{url}
 
+\usepackage{tabularx}
+\usepackage{booktabs}
+
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -213,122 +216,252 @@ This mechanism provides continuity between expressions but offers no visual feed
 Overall, BlueJ promotes visual and intuitive inspection through its graphical interface, whereas JShell relies on textual identifiers and explicit method calls. Both approaches support object manipulation, but they differ fundamentally in how learners perceive and explore program state.
 
 
+\subsection{Importing Packages}
+
+A fundamental aspect of programming in Java is the ability to reuse existing classes through package imports. Both BlueJ and JShell support importing Java library classes, third-party packages, and user-defined code, but they do so in distinct ways that reflect their pedagogical focus.
+
+In BlueJ, imports are typically implicit: students rely on classes provided by the standard Java API or by project files already available in the BlueJ workspace. When external libraries are required, BlueJ offers a graphical option through the menu \textit{Project → Add Library...}, which adds JAR files to the project’s classpath without the need for command-line configuration. This simplifies experimentation while maintaining a controlled environment.
+
+JShell, on the other hand, provides several mechanisms for extending its environment. Standard Java packages can be imported explicitly using the \texttt{import} statement, just as in regular Java programs:
+
+\begin{lstlisting}
+jshell> import java.util.*;
+jshell> var list = new ArrayList<String>();
+list ==> []
+\end{lstlisting}
+
+For user-defined or third-party code, JShell accepts additional classpaths when launched or during a session. The option \texttt{-cp} (or \texttt{--class-path}) can include directories or JAR files:
+
+\begin{lstlisting}
+jshell --class-path out:lib/some.jar
+\end{lstlisting}
+
+Inside an active session, the commands \texttt{/open} and \texttt{/load} allow on-demand inclusion of external source files or previously saved JShell scripts:
+
+\begin{lstlisting}
+jshell> /open MyClass.java
+jshell> /load mysession.jsh
+\end{lstlisting}
+
+While BlueJ’s graphical interface abstracts classpath management for beginners, JShell exposes it explicitly, providing a more professional view of how Java resolves external dependencies. This difference reflects each tool’s intended audience: BlueJ emphasizes accessibility and guided learning, whereas JShell fosters autonomy and closer alignment with the standard Java toolchain.
 
 
-\subsection{Import packages}
-Java library, third party, user defined
-Importing packages
+\subsection{Loading and Reloading Code}
 
-\subsection{Load and reload code}
-Changes on user defined code
-After each compile
+When user-defined code is edited and recompiled, each environment manages the update process differently, reflecting its internal architecture and pedagogical intent.
 
-Are objects and values removed from memory at each reload?
+In BlueJ, any modification to a class requires explicit recompilation through the \textit{Compile} button. Once recompilation occurs, all existing objects of the modified class are automatically invalidated and removed from the object bench. This ensures consistency between the compiled class definition and its instantiated objects, but also interrupts the learner’s exploratory flow. The need to recreate objects after each change reinforces the notion of compilation as a discrete phase in the development process.
+
+In contrast, JShell allows the redefinition of classes and methods directly within the same session. When a class is edited externally and reloaded using the command \texttt{/reload}, or when its definition is re-entered interactively, the previous version of the class is replaced. Variables and objects that reference the old class definition become invalid or inaccessible, but other unrelated session variables persist in memory.
+
+\begin{lstlisting}
+jshell> /open MyClass.java
+jshell> var obj = new MyClass();
+obj ==> MyClass@5a07e868
+// After editing MyClass.java
+jshell> /reload
+|  Warning: class MyClass has been replaced.
+\end{lstlisting}
+
+JShell’s behavior offers greater flexibility for experimentation but introduces subtleties in state management that may confuse beginners. Objects created before a class redefinition cannot be reused, and there is no visual feedback to indicate their invalidation. Whereas BlueJ enforces consistency through visible recompilation and object removal, JShell delegates responsibility to the user, who must manually manage redefinitions and session resets.
+
+Thus, BlueJ emphasizes the conceptual separation between compilation and execution, while JShell illustrates the dynamic nature of modern REPL-based workflows.
+
  
+\subsection{Saving and Resuming Work}
 
-\subsection{Conditionals, iteration, recursion}
-if else
-while, do while, for, for with array and collections
+Persistence of work differs significantly between BlueJ and JShell, reflecting their underlying design philosophies. BlueJ organizes programs into explicit projects composed of source files, compiled classes, and configuration data. Each project can be saved, closed, and reopened through graphical menu options such as \textit{Project → Save} or \textit{Project → Open Project...}. This model encourages structured development and makes it easier for beginners to associate their code with physical files stored on disk.
 
-\subsection{Errors, Exceptions}
-division by zero
-null pointer
+In contrast, JShell operates in an ephemeral session-based environment. By default, definitions created within a session—variables, imports, methods, and classes—exist only in memory. To preserve them, users must explicitly save the session using the \texttt{/save} command:
 
-arrayindexoutofbounds
+\begin{lstlisting}
+jshell> /save session01.jsh
+\end{lstlisting}
 
-formatter
+The saved file can later be reloaded with \texttt{/open} or \texttt{/load}, restoring the previous definitions:
 
-reading and writing files
+\begin{lstlisting}
+jshell> /open session01.jsh
+\end{lstlisting}
+
+This workflow aligns with interactive programming practices but differs from the file-oriented perspective taught in early programming courses. Beginners may find it less intuitive to manage code that is not visibly represented as files within a project structure. However, for advanced users, session files facilitate rapid prototyping and experimentation without the overhead of project configuration.
+
+From a pedagogical standpoint, BlueJ’s project model reinforces the notion of code as a tangible artifact—something that can be organized, versioned, and revisited—whereas JShell prioritizes immediacy and iteration, supporting exploratory learning through temporary, editable sessions.
 
 
-\subsection{Input and output}
-printf
-format
-regex
 
-\subsection{Lambda and Streams}
-lambdas
-forEach(), mapTo(), count()
+\subsection{Conditionals, Iteration, and Recursion}
 
-\subsection{GUI, file system, network}
+Both BlueJ and JShell fully support the use of Java control structures such as \texttt{if}–\texttt{else}, \texttt{while}, \texttt{do–while}, and \texttt{for} loops. These constructs behave identically in both environments because they are evaluated by the same Java compiler and runtime.
 
-\subsection{Saving scripts}
+In BlueJ’s \textit{Code Pad}, students can type short conditional statements or loop fragments to observe their immediate results. For example, using \texttt{if} statements to test Boolean expressions, or executing a \texttt{for} loop to print a sequence of values. When the code contains side effects, BlueJ provides visual feedback through the object bench, helping students observe changes in object state.
 
-\subsection{Variability}
-BlueJ Two-way integration with visual object model
+JShell allows the same structures to be executed interactively:
 
-BlueJ compiler, classpath, reload
+\begin{lstlisting}
+jshell> for (int i = 0; i < 5; i++) System.out.print(i + " ");
+0 1 2 3 4 
+\end{lstlisting}
 
-Java Shell Id
+Because of its REPL nature, JShell encourages short, self-contained experiments with control flow. Recursion can also be tested interactively by defining methods inline, for example:
+
+\begin{lstlisting}
+jshell> int factorial(int n) { return n <= 1 ? 1 : n * factorial(n - 1); }
+jshell> factorial(5)
+$1 ==> 120
+\end{lstlisting}
+
+This flexibility helps learners test ideas incrementally, but without the visual cues present in BlueJ.
+
+---
+
+\subsection{Errors and Exceptions}
+
+Error reporting is another area where the two environments differ in presentation. In BlueJ, syntax or compilation errors are visually indicated in the editor, with colored highlights and messages shown below the source pane. Runtime exceptions such as division by zero, null references, or array index violations are displayed in dialog boxes, guiding students toward the relevant line or expression.
+
+JShell, by contrast, reports all errors textually within the command-line interface. Compilation errors are printed immediately after the offending statement, and runtime exceptions generate stack traces similar to those found in professional IDEs:
+
+\begin{lstlisting}
+jshell> 10 / 0
+|  java.lang.ArithmeticException: / by zero
+\end{lstlisting}
+
+Other common exceptions behave similarly, such as \texttt{NullPointerException} or \texttt{ArrayIndexOutOfBoundsException}. Although this textual feedback is precise, it may be intimidating for beginners unfamiliar with stack traces. BlueJ’s graphical presentation, while simplified, provides a gentler introduction to debugging concepts.
+
+Both tools support formatted output and file operations, but BlueJ requires explicit coding within classes, whereas JShell allows direct execution of I/O statements for quick testing, including use of \texttt{System.out.printf()} or file readers and writers. This distinction further illustrates BlueJ’s emphasis on structure versus JShell’s emphasis on immediacy.
+
+
+\subsection{Input and Output}
+
+In BlueJ, input and output are typically introduced through console printing and file manipulation inside class methods. Examples such as \texttt{System.out.println()} or formatted output using \texttt{printf()} are embedded within complete methods. 
+
+JShell enables these same operations interactively, making it possible to test formatting, regular expressions, and string manipulation directly:
+
+\begin{lstlisting}
+jshell> System.out.printf("%d %04d %s%n", 1, 23, "BlueJ");
+1 0023 BlueJ
+\end{lstlisting}
+
+Students can also experiment with the \texttt{String.format()} and regular expression APIs without creating auxiliary classes. This immediacy can accelerate learning of Java’s standard library, though it bypasses some of the structural discipline emphasized in project-based environments.
+
+---
+
+\subsection{Lambdas and Streams}
+
+Although not typically part of a first programming course, both BlueJ and JShell can execute Java expressions that involve lambda functions and streams. BlueJ treats these constructs as standard Java syntax within classes or methods. JShell, however, makes it easier to test them interactively:
+
+\begin{lstlisting}
+jshell> var list = List.of(1, 2, 3, 4, 5);
+jshell> list.stream().map(x -> x * 2).forEach(System.out::println);
+2
+4
+6
+8
+10
+\end{lstlisting}
+
+Such examples demonstrate how JShell extends beyond the typical educational use case, bridging introductory learning with more advanced, professional practices. Instructors can use JShell to preview features like functional programming without requiring full project setup.
+
+---
+
+\subsection{Variability Across Environments}
+
+Despite their shared Java foundation, BlueJ and JShell exhibit variability in how features are accessed and experienced. BlueJ offers two-way integration with its visual object model, combining source editing, compilation, and direct object manipulation. Its compiler, classpath configuration, and reloading mechanisms are encapsulated within the environment, shielding beginners from underlying complexity.
+
+JShell, in contrast, exposes these mechanisms explicitly. It manages identifiers (\texttt{\$1}, \texttt{\$2}, etc.) for evaluated expressions and relies on textual commands for imports, reloading, and environment management. This transparency aligns with professional workflows but assumes a higher degree of autonomy from the learner.
+
+From a pedagogical view, BlueJ’s variability lies in its abstraction—with less complex operations through a visual interface—whereas JShell’s variability arises from its openness, offering multiple ways to achieve the same goal through direct commands.
 
 
 \section{Pragmatic Feature Comparison}
-Commonality and variability are
 
-The comparison presented here focuses on what learners can directly experience in practice, rather than on the theoretical intent of each design.
+Commonality and variability between BlueJ and JShell can be analyzed in terms of their directly observable behavior. Rather than focusing on the theoretical intent of each environment’s design, this comparison emphasizes what learners can concretely experience in practice.
 
 \begin{quote}
-As a novice programmer
-I want to explore command interactively
-so I can try new commands as soon I learn about them
+\textit{As a novice programmer,  
+I want to explore commands interactively  
+so that I can try new ideas as soon as I learn about them.}
 \end{quote}
+
+This pragmatic perspective shifts the focus from software architecture or pedagogical philosophy to user experience—how a student interacts with the tool, receives feedback, and develops understanding through action. Each feature or scenario represents a small learning opportunity, where interaction design either supports or hinders exploration.
+
+Table~\ref{tab:features} summarizes the main features observed in both environments, organized according to the scenarios previously discussed. The table highlights both common elements (functional equivalence) and variable aspects (differences in presentation, feedback, or usability).
+
+\begin{table}[h]
+\centering
+\caption{Pragmatic Feature Comparison between BlueJ and JShell}
+\label{tab:features}
+
+%\begin{tabular}{p{3cm} p{5cm} p{5cm}}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.22\linewidth}
+                                 >{\raggedright\arraybackslash}p{0.38\linewidth}
+                                 >{\raggedright\arraybackslash}p{0.38\linewidth}}
+\toprule
+\textbf{Scenario / Feature} & \textbf{BlueJ Code Pad} & \textbf{JShell} \\
+\midrule
+Evaluate expressions & Shows value and type; visual feedback through object icons & Shows value only; textual output with automatic identifiers (\$1, \$2, ...) \\
+Declare variables & Variables appear in the object bench for inspection & Variables listed via \texttt{/vars} command \\
+Inspect objects & Graphical object inspector; interactive method calls & String representation only; introspection via method calls \\
+Load and reload code & Requires explicit recompilation; objects cleared from bench & Allows class redefinition via \texttt{/reload}; existing variables persist \\
+Import packages & \textit{Add Library...} menu; automatic classpath management & Manual import and classpath control using \texttt{--class-path}, \texttt{/open}, \texttt{/load} \\
+Save and resume work & Project-based; stored on disk with compiled files & Session-based; must use \texttt{/save} and \texttt{/open} \\
+Error and exception handling & Visual error highlighting; dialogs for runtime exceptions & Textual stack traces; command-line diagnostics \\
+Lambdas and streams & Executed within full class context; limited in early courses & Fully supported interactively; aligns with modern Java features \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The table serves as a preliminary step toward a Feature-Oriented Domain Model (FODM), identifying which interactions are shared and which are unique to each environment. Commonalities suggest stable pedagogical patterns, whereas variabilities point to opportunities for improvement or integration across tools.
+
+
 
 
 \section{Related Work}
 
-At least on study points out the inadequacy of the Java Shell in the classroom
-\cite{politz_minnes2018jshell}.
+Several environments have been proposed to support introductory programming, balancing pedagogical simplicity with professional relevance. This study builds upon that tradition by examining the interactive features of BlueJ’s \textit{Code Pad} and Java’s \textit{JShell}.
 
+At least one recent study explicitly points out the inadequacy of JShell in classroom contexts. Politz and Minnes \cite{politz_minnes2018jshell} argue that although JShell provides a standard REPL for Java, its design prioritizes professional usage over pedagogical usability. Their findings suggest that without scaffolding or visual feedback, students may struggle to understand object state and program structure.
 
-BeanShell early attempt
+Before JShell, earlier attempts at interactive Java environments included BeanShell, a lightweight interpreter that supported scripting and command-line evaluation of Java code. BeanShell demonstrated the feasibility of interactive Java execution long before it became part of the JDK, but it lacked full language compatibility and integration with educational workflows.
 
-Python and Python Notebooks
+BlueJ itself belongs to a family of educational programming tools such as Greenfoot and DrJava. Greenfoot extended the BlueJ philosophy into a more visual, animation-based environment aimed at younger learners, while DrJava provided a lightweight IDE for teaching standard Java syntax with simplified project management. Each of these environments shared the goal of making Java more approachable to novices through interactive and incremental experimentation.
 
-BASIC and LISP.
+Outside the Java ecosystem, Python and its interactive notebooks (Jupyter, Google Colab) have become dominant tools for both education and research. These environments integrate code, execution, and explanation in a single interface, exemplifying the pedagogical power of immediate feedback. They also demonstrate how professional and educational uses can coexist within the same platform—an idea conceptually similar to JShell’s role within the JDK.
+
+Visual programming environments form another relevant category. Game-development tools such as Unity incorporate node-based scripting systems that allow users to manipulate program logic visually. Similarly, modern workflow automation tools such as n8n and Node-RED employ visual metaphors for data flow and control structures. Although aimed at professional developers, they share with educational tools the goal of making computation visible and manipulable.
+
+Historically, visual representations of algorithms—such as flowcharts and UML activity diagrams—served as early forms of structured programming visualization. These notations, along with educational languages such as BASIC and LISP, established the foundations of interactive and exploratory learning environments that remain influential today.
+
+Taken together, these precedents contextualize the comparison between BlueJ and JShell within a broader continuum of interactive programming tools. From early educational languages to modern professional REPLs and visual systems, the ongoing challenge remains how to reconcile ease of learning with fidelity to real-world programming practice.
 
 \section{Discussion}
 
-JShell is a professional tool
+JShell is primarily a professional tool. As part of the standard Java Development Kit, it was designed to facilitate rapid experimentation for experienced developers. Its interface and feedback mechanisms reflect this purpose, prioritizing flexibility and completeness over visual guidance. In contrast, BlueJ integrates multiple features specifically tailored for learning, including visual object models, simplified project management, and seamless interaction between source code, object diagrams, and the Code Pad.
 
-BlueJ integration of many features.
+Among these features, BlueJ’s graphical representation of classes and objects—combined with its two-way integration with the Code Pad—has no direct equivalent in JShell. This integration allows learners to move fluidly between textual commands and visual feedback, reinforcing the conceptual relationship between code and runtime behavior. JShell, while offering equivalent computational functionality, lacks this visual affordance and the pedagogical scaffolding that accompanies it in the BlueJ ecosystem.
 
-BlueJ features not provided by Java Shell include class and object visual models and their integration with Code Pad.
+To compare the potential learning experience between these tools, this study examined their interactive features as observable phenomena. Rather than measuring learning outcomes in the classroom, which would require complex control of confounding factors such as student motivation, prior experience, and problem-solving skills, the analysis focuses on a pragmatic feature comparison. The resulting model serves as an objective reference point, identifying which aspects of the user experience are shared and which differ fundamentally.
 
-In order to compare the potential experience, we compare features of the applications.
+A textual analysis of \textit{Objects First with Java} revealed that most references to the Code Pad occur in exercises rather than in the main explanatory narrative. This pattern suggests that the Code Pad was conceived as a space for experimentation—an invitation for students to test hypotheses, explore expressions, and learn through active discovery. In this sense, it functions less as a demonstration tool and more as a pedagogical bridge between reading and doing.
 
-The need for a in-classroom is reduced, because the feature model provides a objective reference point. Variation of performance among students is a complex task, because of confounding factors as motivation, previous experience, and problem solving skills.
+JShell, as distributed within the JDK, provides similar capabilities but lacks the explicit instructional framing found in BlueJ’s textbook and interface. While it supports exploration, it does not explicitly invite it. The absence of guided discovery elements—such as object icons, contextual menus, or exercise references—may limit its immediate pedagogical impact, even though it offers greater technical breadth.
 
-A textual analysis of Objects First with Java revealed that most references to the Code Pad occur in exercises rather than in the main narrative. This suggests that the Code Pad’s pedagogical purpose was to foster exploratory learning through direct manipulation, rather than to illustrate concepts in a teacher-centered manner. In this sense, the Code Pad functions as an invitation to experiment, positioning students as active participants in their own discovery process.
+Earlier tools such as BeanShell anticipated this mode of exploratory programming. Like a protoboard used in electronics education, BeanShell allowed rapid assembly and testing of small components without the overhead of full program compilation. JShell inherits this spirit but applies it within a professional-grade toolchain, closing the gap between educational and industrial environments.
 
-JShell, as distributed within the standard JDK, lacks this framing. It provides equivalent functionality but without the explicit pedagogical scaffolding present in BlueJ’s textbook ecosystem.
+Different categories of software can be associated with different modes of use. Following the classification of “Type E” systems (exploratory systems), educational programming environments prioritize experimentation and conceptual reinforcement. Both BlueJ and JShell can support exploratory learning, but they do so through distinct affordances: BlueJ through visual structure and integration, JShell through immediacy and professional continuity.
 
-Bean Shell exploratory programming
-protoboard
+Finally, it is worth clarifying the use of the term \textit{feature}. The word appears across several traditions in Software Engineering. In the context of this study, it designates a functional capability of the Code Pad and JShell—consistent with its usage in technical documentation and in Sommerville (2015). However, the term also has formal meanings in Feature-Oriented Software Development (Kang et al., 1990; Batory et al., 2004) and in Behavior-Driven Development (North, 2006), where it refers to observable units of system behavior (feature files). The pragmatic interpretation adopted here aligns more closely with the everyday sense of “capability,” focusing on the learner’s experience of what each environment enables or constrains.
 
-types of software 
-Type E
-
-O termo feature é utilizado em diferentes tradições da Engenharia de Software. No contexto deste artigo, ele designa um recurso funcional das ferramentas Code Pad e JShell, em sentido semelhante ao uso em documentação técnica e em Sommerville (2015).
-Reconhece-se, contudo, que o termo também possui acepções formais em Feature-Oriented Software Development (Kang et al., 1990; Batory et al., 2004) e em Behavior-Driven Development (North, 2006), onde descreve unidades de comportamento observável (feature files).
 
 \section{Conclusion}
 
-The Java Shell provides interactive and exploratory features that can improve the experience to programmers on all levels of maturity.
+The Java Shell provides interactive and exploratory features that can enhance the programming experience for learners and professionals alike. By integrating a modern read–eval–print loop into the Java ecosystem, JShell enables immediate experimentation and rapid feedback—qualities long associated with more dynamically typed languages. Its inclusion in the JDK reflects the recognition that exploration and iteration are central to learning and software development at all levels of maturity.
 
-The use of professional tools on the classroom is a reality that calls for a more diverse set of tools, to accomodate a more diverse set of students.
+At the same time, the increasing use of professional tools in the classroom highlights the need for a more diverse ecosystem of environments, capable of accommodating a wide range of student profiles and learning preferences. While many of the examples drawn from the BlueJ textbook can be reproduced within JShell, certain pedagogical elements remain unique to BlueJ, particularly its integration of visual class and object models and its simplified, structured feedback. These features continue to offer important scaffolding for learners taking their first steps in programming.
 
-All/many/some example of the benchmark can be reproduced using the Java Shell.
+The challenge, therefore, is not to replace one tool with another, but to balance the power and realism of professional environments like JShell with the accessibility and pedagogical focus of educational tools such as BlueJ. A pragmatic pedagogical perspective, as adopted in this study, directs attention to what students can actually do and observe: they explore, test, and learn through the specific forms of feedback and interaction each environment affords.
 
-Code Pad has unique features, as the integration with visual models, and a simplified set of messages. 
-
-Balance the power of the Java Shell with the easier adoption of BlueJ.
-
-The pragmatic pedagogical lens adopted here emphasizes observable use: students explore, test, and learn through the specific feedback and interaction patterns that Code Pad or JShell provide.
-
-Future work will formalize this comparison through feature modeling, allowing these pragmatic observations to be represented systematically
-
-As a next step, we plan to formalize the comparative model using tools such as FeatureIDE, and to investigate other BlueJ features—especially visual modeling and object inspection—as subjects for future papers.
-
+Future work will formalize this comparison through feature modeling, enabling these pragmatic observations to be represented systematically. As a next step, we plan to develop a feature-oriented domain model using tools such as FeatureIDE, extending the analysis to other aspects of BlueJ—including visual modeling and object inspection—as potential subjects for subsequent studies.
 \bibliographystyle{plain}
 \bibliography{refs}
 

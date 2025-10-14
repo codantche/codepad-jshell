@@ -128,45 +128,92 @@ All evidence and supplementary materials used in this study are available in the
 
 \section{Usage Scenarios}
 
-Exercises from Barnes and Kolling
+This section presents a set of simple scenarios inspired by the exercises in Barnes and Kölling’s *Objects First with Java* \cite{barnes2008objects}. These examples were selected to illustrate how introductory programming tasks performed in BlueJ’s \textit{Code Pad} can be reproduced in Java’s \textit{JShell}.
 
-\subsection{Evaluate expressions}
+\subsection{Evaluating Expressions}
 
-Following the examples of the BlueJ book, the first example includes the evaluation of an arithmetic expression and a method call.
+Following the examples from the BlueJ book, the first scenario involves the evaluation of arithmetic expressions and method calls.
 
-BlueJ return value and type of each expression. 
-The internal structure of the objects can be visually inspected in BlueJ. 
+In BlueJ, the \textit{Code Pad} displays both the value and the data type of each evaluated expression. In addition, the internal structure of created objects can be visually inspected through the object bench and the inspector.
 
-JShell returns only the value. Data types can be consulted using the command /vars.
-JShell users must recur to introspection commands, which would be out of the scope of a first programming course. 
-The CLI of Java Shell at least allow the use of ids to refer to expression values,  objects  and basic types.
+In contrast, JShell displays only the resulting value of each expression. The corresponding data types can be queried using the command \texttt{/vars}, which lists variables and their types. However, more advanced introspection commands would normally fall outside the scope of a first programming course. Nevertheless, the JShell command-line interface allows users to refer to previous results using automatically assigned identifiers (such as \texttt{\$1}, \texttt{\$2}), which can represent values, objects, or primitive types.
 
 \begin{lstlisting}
 jshell> 4 + 5
 $1 ==> 9
 \end{lstlisting}
 
-Method call
+Method call example:
+
 \begin{lstlisting}
 jshell> "Wombat".substring(3, 5)
 $2 ==> "ba"
 \end{lstlisting}
 
-mod with %
-integer and real division
-char and String
-autoboxing and unboxing
-autoincrement and decrement
-operator precedence
+Other examples include:
+\begin{itemize}
+  \item Arithmetic operators such as \texttt{\%} (modulus), integer division, and floating-point division;
+  \item Character and string concatenation;
+  \item Autoboxing and unboxing of primitive and wrapper types;
+  \item Pre- and post-increment or decrement operators;
+  \item Operator precedence and associativity;
+  \item Left-hand and right-hand expressions in assignments.
+\end{itemize}
 
-left and right side expressions
 
-\subsection{Declare variables}
-Variable declaration
+\subsection{Declaring Variables}
 
-Use var and data types do declare variables, basic types, references, arrays, records
+A common early activity in both environments is the declaration of variables. In BlueJ’s \textit{Code Pad}, students can declare and initialize variables using either explicit data types or the \texttt{var} keyword (from Java 10 onwards). In the 4\textsuperscript{th} edition of Barnes and Kölling’s book, examples typically use explicit types for primitive values and object references.
 
-\subsection{Inspect values and objects}
+In BlueJ, the declaration of a variable such as \texttt{int x = 4;} results in the creation of a variable that can later be inspected through the object bench or by entering the variable name in the Code Pad. Reference types, such as \texttt{Circle} or \texttt{String}, appear as interactive icons in the object bench, allowing visual manipulation and inspection.
+
+JShell provides equivalent functionality for declaring variables of primitive or reference types. Each declaration receives an automatic identifier and can be reviewed using the command \texttt{/vars}, which lists all current variables and their types.
+
+\begin{lstlisting}
+jshell> int x = 4;
+x ==> 4
+
+jshell> String name = "BlueJ";
+name ==> "BlueJ"
+\end{lstlisting}
+
+JShell also supports the use of \texttt{var} for local type inference:
+
+\begin{lstlisting}
+jshell> var y = 3.14;
+y ==> 3.14
+\end{lstlisting}
+
+Arrays and other compound data structures can also be declared interactively, providing immediate feedback similar to that obtained in BlueJ’s \textit{Code Pad}.
+
+\begin{lstlisting}
+jshell> int[] values = {1, 2, 3};
+values ==> int[3] { 1, 2, 3 }
+\end{lstlisting}
+
+While JShell allows the declaration of records and other modern constructs, such features are beyond the scope of the early chapters of introductory programming courses. Nonetheless, their presence highlights JShell’s alignment with the current Java specification, offering continuity between educational and professional contexts.
+
+
+\subsection{Inspecting Values and Objects}
+
+Inspection is a central aspect of exploratory programming. In BlueJ, objects created through the \textit{Code Pad} appear as small red icons that can be dragged to the object bench. This two-way integration allows students to inspect an object’s internal state, invoke its methods through graphical menus, and visualize its attributes in a structured format. Such features reinforce the concept of objects as tangible entities, directly manipulable within the environment.
+
+In contrast, JShell represents evaluated expressions and instantiated objects textually. Each result is automatically assigned an identifier such as \texttt{\$1}, \texttt{\$2}, and so on. These identifiers can be used in subsequent expressions to access or manipulate the corresponding values:
+
+\begin{lstlisting}
+jshell> new String("BlueJ")
+$1 ==> "BlueJ"
+
+jshell> $1.length()
+$2 ==> 5
+\end{lstlisting}
+
+This mechanism provides continuity between expressions but offers no visual feedback. Objects are displayed in their string representation, and their internal structure remains opaque unless explicitly accessed through methods or reflection. While public interfaces can be explored programmatically, deeper introspection (such as listing fields or methods) requires commands and APIs that are generally beyond the scope of introductory programming courses.
+
+Overall, BlueJ promotes visual and intuitive inspection through its graphical interface, whereas JShell relies on textual identifiers and explicit method calls. Both approaches support object manipulation, but they differ fundamentally in how learners perceive and explore program state.
+
+
+
 
 \subsection{Import packages}
 Java library, third party, user defined
@@ -231,6 +278,13 @@ so I can try new commands as soon I learn about them
 
 At least on study points out the inadequacy of the Java Shell in the classroom
 \cite{politz_minnes2018jshell}.
+
+
+BeanShell early attempt
+
+Python and Python Notebooks
+
+BASIC and LISP.
 
 \section{Discussion}
 

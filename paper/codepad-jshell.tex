@@ -151,23 +151,81 @@ Method call
 jshell> "Wombat".substring(3, 5)
 $2 ==> "ba"
 \end{lstlisting}
-Two-way integration with visual object model
 
-After each compile
+mod with %
+integer and real division
+char and String
+autoboxing and unboxing
+autoincrement and decrement
+operator precedence
 
-Importing packages
+left and right side expressions
 
+\subsection{Declare variables}
 Variable declaration
 
-Saving scripts
+Use var and data types do declare variables, basic types, references, arrays, records
 
-Conditional commands
+\subsection{Inspect values and objects}
+
+\subsection{Import packages}
+Java library, third party, user defined
+Importing packages
+
+\subsection{Load and reload code}
+Changes on user defined code
+After each compile
+
+Are objects and values removed from memory at each reload?
+ 
+
+\subsection{Conditionals, iteration, recursion}
+if else
+while, do while, for, for with array and collections
+
+\subsection{Errors, Exceptions}
+division by zero
+null pointer
+
+arrayindexoutofbounds
+
+formatter
+
+reading and writing files
+
+
+\subsection{Input and output}
+printf
+format
+regex
+
+\subsection{Lambda and Streams}
+lambdas
+forEach(), mapTo(), count()
+
+\subsection{GUI, file system, network}
+
+\subsection{Saving scripts}
+
+\subsection{Variability}
+BlueJ Two-way integration with visual object model
+
+BlueJ compiler, classpath, reload
+
+Java Shell Id
 
 
 \section{Pragmatic Feature Comparison}
 Commonality and variability are
 
 The comparison presented here focuses on what learners can directly experience in practice, rather than on the theoretical intent of each design.
+
+\begin{quote}
+As a novice programmer
+I want to explore command interactively
+so I can try new commands as soon I learn about them
+\end{quote}
+
 
 \section{Related Work}
 
@@ -185,6 +243,10 @@ BlueJ features not provided by Java Shell include class and object visual models
 In order to compare the potential experience, we compare features of the applications.
 
 The need for a in-classroom is reduced, because the feature model provides a objective reference point. Variation of performance among students is a complex task, because of confounding factors as motivation, previous experience, and problem solving skills.
+
+A textual analysis of Objects First with Java revealed that most references to the Code Pad occur in exercises rather than in the main narrative. This suggests that the Code Pad’s pedagogical purpose was to foster exploratory learning through direct manipulation, rather than to illustrate concepts in a teacher-centered manner. In this sense, the Code Pad functions as an invitation to experiment, positioning students as active participants in their own discovery process.
+
+JShell, as distributed within the standard JDK, lacks this framing. It provides equivalent functionality but without the explicit pedagogical scaffolding present in BlueJ’s textbook ecosystem.
 
 Bean Shell exploratory programming
 protoboard
@@ -205,7 +267,6 @@ All/many/some example of the benchmark can be reproduced using the Java Shell.
 
 Code Pad has unique features, as the integration with visual models, and a simplified set of messages. 
 
-
 Balance the power of the Java Shell with the easier adoption of BlueJ.
 
 The pragmatic pedagogical lens adopted here emphasizes observable use: students explore, test, and learn through the specific feedback and interaction patterns that Code Pad or JShell provide.
@@ -213,8 +274,6 @@ The pragmatic pedagogical lens adopted here emphasizes observable use: students 
 Future work will formalize this comparison through feature modeling, allowing these pragmatic observations to be represented systematically
 
 As a next step, we plan to formalize the comparative model using tools such as FeatureIDE, and to investigate other BlueJ features—especially visual modeling and object inspection—as subjects for future papers.
-
-
 
 \bibliographystyle{plain}
 \bibliography{refs}
